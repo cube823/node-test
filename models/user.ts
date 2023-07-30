@@ -1,16 +1,19 @@
-const mongodb = require('mongodb')
-const getDb = require('../util/database').getDb
+const _mongodb = require('mongodb')
+const _getDb = require('../util/database').getDb
 
-const ObjectId = mongodb.ObjectId
+const ObjectId = _mongodb.ObjectId
 
 class User {
-  constructor(name, email) {
+  name: string
+  email: string
+
+  constructor(name: string, email: string) {
     this.name = name
     this.email = email
   }
 
   save() {
-    const db = getDb()
+    const db = _getDb()
     return db
       .collection('users')
       .insertOne(this)
@@ -19,7 +22,7 @@ class User {
   }
 
   static findById(userId) {
-    const db = getDb()
+    const db = _getDb()
     return db
       .collection('users')
       .findOne({ _id: new ObjectId(userId) })
