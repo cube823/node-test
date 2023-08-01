@@ -10,7 +10,7 @@ const mongoConnect = require('./util/database').mongoConnect
 
 const app = express()
 
-const User = require('./models/user')
+const _User = require('./models/user')
 
 app.set('view engine', 'ejs')
 app.set('views', 'views')
@@ -22,7 +22,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use((req, res, next) => {
-  User.findById(FIRST_USER_ID)
+  _User
+    .findById(FIRST_USER_ID)
     .then((user) => {
       req.user = user
       next()

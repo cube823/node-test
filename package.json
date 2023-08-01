@@ -2,11 +2,11 @@
   "name": "nodejs-test-project",
   "version": "1.0.0",
   "description": "node js test project",
-  "main": "app.js",
+  "main": "app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node app.js",
-    "start-server": "node app.js"
+    "start": "ts-node app.ts",
+    "start-server": "node app.ts"
   },
   "author": "minky",
   "license": "ISC",
